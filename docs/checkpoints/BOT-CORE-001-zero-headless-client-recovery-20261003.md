@@ -1,7 +1,7 @@
 # BOT-CORE-001 â€” Zero headless-client recovery
 
 **Date:** 2026-10-03
-**Status:** SOURCE + OFFLINE TESTS PASS; live combat lifecycle not yet proven
+**Status:** SOURCE + REAL-CLIENT LIFECYCLE + SIX-RUN BASELINE PASS
 **Repository:** `Uku-Developer/zero`
 **Branch:** `reclamation/bot-core-001`
 **Base HEAD:** `b3858f8c6b0877794379da0c919fb02b805e8ea8`
@@ -103,11 +103,11 @@ Therefore the Zero embodiment satisfies the original BOT-AGENT question: it is a
 
 Before rebuilding the corrected source, the current Duel-v3 executable was frozen and used for six 60-second loopback duels. Launch order alternated A/B then B/A. Raw logs and per-run hashes live outside Git under C:\\Projects\\reclamation-build\\bot-baseline-evidence\\.
 
-Authoritative Server outcomes: run-01 0-0; run-02 0-0; run-03 1-1; run-04 0-0; run-05 0-0; run-06 1-1. The previously observed exploratory 3-0 pair was not reproduced and is not a tuning basis.
+Authoritative Server outcomes: run-01 0-0; run-02 0-0; run-03 1-1; run-04 0-0; run-05 0-0; run-06 0-1 (V3R06A killed by V3R06B). The six runs therefore contain three total authoritative kills and four zero-kill runs. The previously observed exploratory 3-0 pair was not reproduced and is not a tuning basis.
 
-The corrected evaluator analyzed six duels / twelve explicit player observations and found 4 total authoritative kills, 4 zero-kill runs, both two-kill runs balanced 1-1, 73,477 RACT records paired successfully with subsequent RINPUT records, 0 orphan RACT records, 287 orphan RINPUT records, and 69,136 paired updates whose input masks changed across the actuator boundary. That confirms pre-actuator RACT and post-actuator RINPUT must not be treated as equivalent.
+The corrected evaluator analyzed six duels / twelve explicit player observations and found 73,486 RACT records paired successfully with subsequent RINPUT records, 0 orphan RACT records, 273 orphan RINPUT records, and 69,856 paired updates whose input masks changed across the actuator boundary. That confirms pre-actuator RACT and post-actuator RINPUT must not be treated as equivalent.
 
-The frozen aggregate summary is stored outside Git at C:\\Projects\\reclamation-build\\bot-baseline-evidence\\baseline-summary.json with SHA-256 A8A66E168F4014CACA3F4EDD1121885CABD599983E468A3B093FD2EF690DB63C.
+The frozen evidence remains outside Git under `C:\\Projects\\reclamation-build\\bot-baseline-evidence\\`. `baseline-summary.json` SHA-256 is `32B785BB2BA0D0FB802EB9D75B0899B95C99331754429DD35FDC5CFA248BF85E`; `baseline-manifest.json` SHA-256 is `7040F81D464EF65591692B1AD486B97948EDABB0A8F9250709BFAD08DF8CA1C1`.
 
 ### Measurement-correctness follow-up
 
@@ -117,4 +117,4 @@ BOT-TELEMETRY-CONTRACT-002 corrects measurement semantics without changing tacti
 
 PASS: Reclamation focused C++ tests; Duel evaluator 20/20; replay extractor 7/7; transition dataset 5/5; git diff --check; full Visual Studio Release/x64 zero.sln build.
 
-The next bot task is baseline/report consolidation and the first reviewable Git commit/PR. Tactical Duel constants remain frozen until a separately designed candidate comparison is justified by repeated baseline evidence.
+BOT-CORE-001 is merged to `master`. The next bot task is a separately designed, predeclared candidate comparison using this frozen six-run baseline; tactical Duel constants remain frozen until that experiment is defined.
