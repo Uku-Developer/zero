@@ -39,6 +39,11 @@
     <ClCompile Include="zero\behavior\BehaviorBuilder.cpp" />
     <ClCompile Include="zero\behavior\BehaviorTree.cpp" />
     <ClCompile Include="zero\BotController.cpp" />
+    <ClCompile Include="zero\reclamation\DuelPolicy.cpp" />
+    <ClCompile Include="zero\reclamation\PolicyNode.cpp" />
+    <ClCompile Include="zero\reclamation\SimpleEngagementPolicy.cpp" />
+    <ClCompile Include="zero\reclamation\TrajectoryPredictor.cpp" />
+    <ClCompile Include="zero\reclamation\ZeroAdapter.cpp" />
     <ClCompile Include="zero\ChatQueue.cpp" />
     <ClCompile Include="zero\commands\CommandSystem.cpp" />
     <ClCompile Include="zero\Config.cpp" />
@@ -117,6 +122,9 @@
     <ClCompile Include="zero\zones\nexus\PubOffenseBehavior.cpp" />
     <ClCompile Include="zero\zones\nexus\TestBehavior.cpp" />
     <ClCompile Include="zero\zones\nexus\ThreesBehavior.cpp" />
+    <ClCompile Include="zero\zones\reclamation\Reclamation.cpp" />
+    <ClCompile Include="zero\zones\reclamation\ReclamationBehavior.cpp" />
+    <ClCompile Include="zero\zones\reclamation\ReclamationDuelBehavior.cpp" />
     <ClCompile Include="zero\zones\svs\PowerballBehavior.cpp" />
     <ClCompile Include="zero\zones\svs\Svs.cpp" />
     <ClCompile Include="zero\zones\svs\TerrierBehavior.cpp" />
@@ -163,6 +171,13 @@
     <ClInclude Include="zero\behavior\nodes\TimerNode.h" />
     <ClInclude Include="zero\behavior\nodes\WaypointNode.h" />
     <ClInclude Include="zero\BotController.h" />
+    <ClInclude Include="zero\reclamation\AppliedInputTelemetry.h" />
+    <ClInclude Include="zero\reclamation\Core.h" />
+    <ClInclude Include="zero\reclamation\DuelPolicy.h" />
+    <ClInclude Include="zero\reclamation\PolicyNode.h" />
+    <ClInclude Include="zero\reclamation\SimpleEngagementPolicy.h" />
+    <ClInclude Include="zero\reclamation\TrajectoryPredictor.h" />
+    <ClInclude Include="zero\reclamation\ZeroAdapter.h" />
     <ClInclude Include="zero\ChatQueue.h" />
     <ClInclude Include="zero\commands\CommandSystem.h" />
     <ClInclude Include="zero\Config.h" />
@@ -285,6 +300,8 @@
     <ClInclude Include="zero\zones\svs\nodes\DynamicPlayerBoundingBoxQueryNode.h" />
     <ClInclude Include="zero\zones\svs\nodes\NearbyEnemyWeaponQueryNode.h" />
     <ClInclude Include="zero\zones\nexus\ThreesBehavior.h" />
+    <ClInclude Include="zero\zones\reclamation\ReclamationBehavior.h" />
+    <ClInclude Include="zero\zones\reclamation\ReclamationDuelBehavior.h" />
     <ClInclude Include="zero\zones\svs\PowerballBehavior.h" />
     <ClInclude Include="zero\zones\svs\TerrierBehavior.h" />
     <ClInclude Include="zero\zones\svs\WarbirdBehavior.h" />

@@ -4,6 +4,8 @@
 #include <zero/behavior/BehaviorBuilder.h>
 #include <zero/behavior/BehaviorTree.h>
 #include <zero/game/Logger.h>
+#include <zero/game/Clock.h>
+#include <zero/reclamation/AppliedInputTelemetry.h>
 
 namespace zero {
 
@@ -194,6 +196,19 @@ void BotController::Update(RenderContext& rc, InputState& input, behavior::Execu
   }
 
   actuator.Update(game, input, steering.force, steering.rotation, steering.rotation_threshold);
+
+  if (reclamation::IsReclamationActionTelemetryEnabled()) {
+    const reclamation::AppliedInputSnapshot applied = reclamation::CaptureAppliedInput(input);
+    Log(LogLevel::Info,
+        "RINPUT schema=1 stage=post_actuator_pre_game_update tick=%u applied_mask=%u left=%d right=%d forward=%d backward=%d "
+        "afterburner=%d bullet=%d bomb=%d steering_force_x=%.3f steering_force_y=%.3f "
+        "steering_rotation=%.3f",
+        GetCurrentTick(), applied.action_mask, applied.left ? 1 : 0, applied.right ? 1 : 0,
+        applied.forward ? 1 : 0, applied.backward ? 1 : 0, applied.afterburner ? 1 : 0,
+        applied.bullet ? 1 : 0, applied.bomb ? 1 : 0, steering.force.x, steering.force.y,
+        steering.rotation);
+  }
+
   chat_queue.Update();
   last_input = input;
 }
