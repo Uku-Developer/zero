@@ -42,3 +42,7 @@ graphics
 *.cfg
 *.log
 wsl
+__pycache__/
+*.py[cod]
+*.rec
+*.jsonl

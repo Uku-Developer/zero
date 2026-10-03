@@ -1,0 +1,24 @@
+[Login]
+Username = ReclamationBotLab
+Password = none
+Server = Reclamation
+Encryption = Subspace
+
+[General]
+Arena = 0
+Owner = *unset*
+LogLevel = Info
+RequestShip = 1
+SleepMs = 1
+RelaxedControllerTick = 0
+
+[Reclamation]
+Arena = 0
+RequestShip = 1
+
+[Servers]
+Reclamation = 127.0.0.1:6857
+
+[Debug]
+RenderWindow = 0
+RenderBehaviorTree = 0
